@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escribime por WhatsApp</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#0e1512; --card:#16211c; --txt:#f2f6f4; --mut:#9fb3a8; --wa:#25d366; --wa2:#128c4a; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px 16px;
+         background:var(--bg); color:var(--txt); font:16px/1.45 -apple-system,system-ui,Segoe UI,Roboto,sans-serif; }
+  .card { width:100%; max-width:420px; background:var(--card); border-radius:20px; padding:26px 20px; text-align:center; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  p { color:var(--mut); margin:0 0 18px; }
+  .btn { display:block; width:100%; padding:16px; border:0; border-radius:14px; font-size:18px; font-weight:700;
+         color:#04210f; background:var(--wa); text-decoration:none; }
+  .btn:active { background:var(--wa2); }
+  .or { margin:20px 0 10px; color:var(--mut); font-size:14px; }
+  .num { font-size:24px; font-weight:700; letter-spacing:.5px; margin:4px 0 12px; user-select:all; }
+  .copy { width:100%; padding:13px; border-radius:12px; border:1px solid var(--mut); background:transparent; color:var(--txt); font-size:16px; }
+  .tip { display:none; margin-top:18px; padding:12px; border-radius:12px; background:#223229; font-size:14px; text-align:left; }
+  .tip.show { display:block; }
+  .ok { color:var(--wa); font-weight:700; }</style>
+</head>
+<body>
+<main class="card">
+  <h1>Escribime por WhatsApp</h1>
+  <p id="sub">Tocá el botón y te ayudo con tu cambio físico.</p>
+
+  <a id="wa" class="btn" href="https://wa.me/5491144444842?text=Hola%20Ripo%2C%20me%20ayudas%20con%20mi%20cambio%20f%C3%ADsico%3F">Abrir WhatsApp</a>
+
+  <div class="or" id="or">¿No abre? Copiá el número y escribime directo:</div>
+  <div class="num" id="num">+54 9 11 4444-4842</div>
+  <button class="copy" id="copy" type="button">Copiar número</button>
+
+  <div class="tip" id="tip">
+    <b>Si te dice que no se puede abrir:</b><br>
+    tocá los <b>3 puntitos ⋯</b> de arriba a la derecha y elegí <b>“Abrir en el navegador”</b>.
+    Después tocá “Abrir WhatsApp” otra vez.
+  </div>
+</main>
+<script>
+  var ua = navigator.userAgent || "";
+  var inApp = /TikTok|musical_ly|BytedanceWebview|Bytedance|trill/i.test(ua);
+  var android = /Android/i.test(ua);
+  var wa = document.getElementById("wa");
+  var text = "Hola Ripo, me ayudas con mi cambio físico?";
+  // --- contador anonimo (abacus) + A/B solo dentro de TikTok: A = pagina original, B = numero grande y destacado ---
+  var NS = "ripo-cf-7k3q9x", variant = "A";
+  try {
+    variant = sessionStorage.getItem("v") || localStorage.getItem("v") || (Math.random() < 0.5 ? "A" : "B");
+    sessionStorage.setItem("v", variant); localStorage.setItem("v", variant);
+  } catch (e) {}
+  if (!inApp) variant = "X";
+  var ctx = inApp ? (android ? "tiktok_android" : "tiktok_ios") : "otro";
+  function hit(ev) {
+    try { fetch("https://abacus.jasoncameron.dev/hit/" + NS + "/" + ev + "_" + ctx + "_" + variant, { mode: "no-cors", keepalive: true }).catch(function () {}); } catch (e) {}
+  }
+  hit("visita");
+  wa.addEventListener("click", function () { hit("toque_wa"); });
+  if (inApp) {
+    document.getElementById("tip").classList.add("show");
+    if (variant === "B") {
+      document.getElementById("or").innerHTML = "<b>Si TikTok te dice que no puede abrir el enlace, copiá el número y escribime directo:</b>";
+      document.getElementById("num").style.fontSize = "28px";
+    }
+  }
+  if (inApp && android) {
+    wa.href = "intent://send?phone=5491144444842&text=" + encodeURIComponent(text) +
+              "#Intent;scheme=whatsapp;package=com.whatsapp;S.browser_fallback_url=" +
+              encodeURIComponent("https://wa.me/5491144444842?text=" + encodeURIComponent(text)) + ";end";
+  }
+  if (!inApp) setTimeout(function () { location.href = "https://wa.me/5491144444842?text=" + encodeURIComponent(text); }, 600);
+
+  document.getElementById("copy").addEventListener("click", function () {
+    hit("toque_copiar");
+    var n = "+5491144444842", b = this;
+    function done() { b.innerHTML = '<span class="ok">¡Copiado! Pegalo en WhatsApp</span>'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(n).then(done, fallback); else fallback();
+    function fallback() {
+      var t = document.createElement("textarea"); t.value = n; document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(t);
+    }
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
