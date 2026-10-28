@@ -33,7 +33,11 @@
   .copy { width:100%; padding:13px; border-radius:12px; border:1px solid var(--mut); background:transparent; color:var(--txt); font-size:16px; }
   .tip { display:none; margin:0 0 16px; padding:12px; border-radius:12px; background:#223229; font-size:14px; text-align:left; }
   .tip.show { display:block; }
-  .ok { color:var(--wa); font-weight:700; }</style>
+  .ok { color:var(--wa); font-weight:700; }
+  .ttios { display:none; text-align:left; background:#223229; border:2px solid var(--wa); border-radius:14px; padding:14px 14px 10px; margin-bottom:6px; }
+  .ttios .paso { font-size:17px; margin-bottom:8px; }
+  .flecha { position:fixed; top:6px; right:14px; font-size:42px; color:var(--wa); animation:sube 1s ease-in-out infinite; }
+  @keyframes sube { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }</style>
 </head>
 <body>
 <main class="card">
@@ -42,6 +46,12 @@
 
   <div class="tip" id="tip">
     <b>Si no se abre WhatsApp:</b> tocá los <b>3 puntitos ⋯</b> de arriba a la derecha, elegí <b>“Abrir en el navegador”</b> y tocá el botón otra vez. O copiá el número de abajo.
+  </div>
+
+  <div id="tt-ios" class="ttios">
+    <div class="flecha">⬆</div>
+    <div class="paso"><b>1.</b> Tocá los <b>3 puntitos ⋯</b> de arriba a la derecha</div>
+    <div class="paso"><b>2.</b> Elegí <b>“Abrir en el navegador”</b> y se abre WhatsApp solo</div>
   </div>
 
   <a id="wa" class="btn" href="https://wa.me/5491144444842">Abrir WhatsApp</a>
@@ -86,12 +96,19 @@
       ch.addEventListener("click", function () { hit("toque_chrome"); });
     }
     if (tt && ios) {
-      document.getElementById("or").innerHTML = "<b>Si TikTok no te deja abrir WhatsApp, copiá el número y escribime directo:</b>";
+      // TikTok iPhone bloquea abrir WhatsApp (probado 28/10 en el iPhone de Ripo): unica salida = Safari o copiar el numero
+      document.getElementById("tt-ios").style.display = "block";
+      document.getElementById("tip").classList.remove("show");
+      document.getElementById("sub").style.display = "none";
+      wa.style.display = "none";
+      document.getElementById("or").innerHTML = "<b>O copiá mi número y escribime directo por WhatsApp:</b>";
       document.getElementById("num").style.fontSize = "28px";
     }
   } else {
     // navegador real (Safari/Chrome): abre la app solo
-    setTimeout(function () { location.href = waUrl; }, 600);
+    // iPhone en Safari: el esquema whatsapp:// abre la app directo (wa.me por JS no dispara el universal link)
+    var auto = ios ? "whatsapp://send?phone=" + PHONE + "&text=" + encodeURIComponent(text) : waUrl;
+    setTimeout(function () { location.href = auto; }, 600);
   }
 
   document.getElementById("copy").addEventListener("click", function () {
