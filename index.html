@@ -36,6 +36,10 @@
   .ok { color:var(--wa); font-weight:700; }
   .ttios { display:none; text-align:left; background:#223229; border:2px solid var(--wa); border-radius:14px; padding:14px 14px 10px; margin-bottom:6px; }
   .ttios .paso { font-size:17px; margin-bottom:8px; }
+  .pasos { display:none; text-align:left; margin:14px 0 0; padding:12px 14px; border-radius:12px; background:#223229; font-size:15px; }
+  .pasos div { margin-bottom:8px; }
+  .pasos .chico { font-size:13px; color:var(--mut); margin-bottom:0; }
+  .aviso { display:none; margin:10px 0 0; color:#ffd479; font-size:14px; }
   .flecha { position:fixed; top:6px; right:14px; font-size:42px; color:var(--wa); animation:sube 1s ease-in-out infinite; }
   @keyframes sube { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }</style>
 </head>
@@ -59,8 +63,15 @@
 
   <div class="or" id="or">¿No abre? Copiá el número y escribime directo:</div>
   <div class="num" id="num">+54 9 11 7812-9062</div>
-  <div class="nota">Agendalo así, con el +54 9 adelante (sirve desde cualquier país)</div>
+  <div class="nota" id="nota">Copialo tal cual, con el +54 9 adelante (sirve desde cualquier país)</div>
   <button class="copy" id="copy" type="button">Copiar número</button>
+  <div class="pasos" id="pasos">
+    <div><b>1.</b> Copiá el número con el botón</div>
+    <div><b>2.</b> Abrí WhatsApp, tocá la <b>lupita</b> y pegalo</div>
+    <div><b>3.</b> Tocá <b>Chatear</b> y mandame un hola</div>
+    <div class="chico">Si no te aparece Chatear: pegalo en un chat tuyo, mandalo y tocá el número. No hace falta que me agendes.</div>
+  </div>
+  <div class="aviso" id="aviso">¿No se abrió WhatsApp? Copiá el número de abajo y pegalo en la lupita de WhatsApp, TikTok e Instagram a veces no dejan abrirlo.</div>
 </main>
 <script>
   var PHONE = "5491178129062";
@@ -82,11 +93,26 @@
     try { fetch("https://abacus.jasoncameron.dev/hit/" + NS + "/" + ev + "_" + ctx, { mode: "no-cors", keepalive: true }).catch(function () {}); } catch (e) {}
   }
   hit("visita");
-  wa.addEventListener("click", function () { hit("toque_wa"); });
+  // 02/11 toque_wa no decia si WhatsApp se abria: TikTok Android 57 toques y 0 llegadas con (t2). salio_* = la pagina quedo oculta despues del toque
+  function salio(ev, ms, sino) {
+    var listo = false;
+    function ver() {
+      if (document.hidden && !listo) { listo = true; hit(ev); document.removeEventListener("visibilitychange", ver); }
+    }
+    document.addEventListener("visibilitychange", ver);
+    setTimeout(function () {
+      document.removeEventListener("visibilitychange", ver);
+      if (!listo && sino) sino();
+    }, ms);
+  }
+  wa.addEventListener("click", function () {
+    hit("toque_wa");
+    salio("salio_wa", 2500, function () { document.getElementById("aviso").style.display = "block"; });
+  });
 
   if (inApp) {
     document.getElementById("tip").classList.add("show");
-    if (android) {
+    if (android && !tt) {
       // intent sin package: sirve con WhatsApp y WhatsApp Business
       wa.href = "intent://send/?phone=" + PHONE + "&text=" + encodeURIComponent(text) +
                 "#Intent;scheme=whatsapp;S.browser_fallback_url=" + encodeURIComponent(waUrl) + ";end";
@@ -95,26 +121,32 @@
       ch.href = "intent://" + location.host + location.pathname + "#Intent;scheme=https;package=com.android.chrome;end";
       ch.addEventListener("click", function () { hit("toque_chrome"); });
     }
-    if (tt && ios) {
-      // TikTok iPhone bloquea abrir WhatsApp (probado 28/10 en el iPhone de Ripo): unica salida = Safari o copiar el numero
+    if (tt) {
+      // TikTok iPhone bloquea abrir WhatsApp (probado 28/10 en el iPhone de Ripo) y en Android 57 toques dieron 0 llegadas (02/11): salida = navegador o copiar el numero
       document.getElementById("tt-ios").style.display = "block";
       document.getElementById("tip").classList.remove("show");
       document.getElementById("sub").style.display = "none";
       wa.style.display = "none";
       document.getElementById("or").innerHTML = "<b>O copiá mi número y escribime directo por WhatsApp:</b>";
       document.getElementById("num").style.fontSize = "28px";
+      document.getElementById("copy").className = "btn";
+      document.getElementById("nota").style.display = "none";
+      document.getElementById("pasos").style.display = "block";
     }
   } else {
     // navegador real (Safari/Chrome): abre la app solo
     // iPhone en Safari: el esquema whatsapp:// abre la app directo (wa.me por JS no dispara el universal link)
     var auto = ios ? "whatsapp://send?phone=" + PHONE + "&text=" + encodeURIComponent(text) : waUrl;
+    document.getElementById("sub").innerHTML = "Se abre WhatsApp con el mensaje ya escrito: <b>tocá enviar</b> y te ayudo con tu cambio físico.";
+    salio("salio_wa", 5000);
     setTimeout(function () { location.href = auto; }, 600);
   }
 
   document.getElementById("copy").addEventListener("click", function () {
     hit("toque_copiar");
+    salio("salio_copiar", 60000);
     var n = "+" + PHONE, b = this;
-    function done() { b.innerHTML = '<span class="ok">¡Copiado! Pegalo en WhatsApp</span>'; }
+    function done() { b.innerHTML = b.className === "btn" ? "¡Copiado! Ahora abrí WhatsApp" : '<span class="ok">¡Copiado! Pegalo en WhatsApp</span>'; }
     function fallback() {
       var t = document.createElement("textarea"); t.value = n; document.body.appendChild(t); t.select();
       try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(t);
