@@ -82,8 +82,19 @@
   var wv = /; wv\)/.test(ua);
   var inApp = tt || ig || fb || wv;
   var ctx = tt ? (ios ? "t1" : "t2") : ig ? (ios ? "i1" : "i2") : fb ? "f1" : wv ? "w1" : (ios ? "s1" : android ? "s2" : "s3");
-  // codigo por contexto en el texto prellenado: el closer cuenta llegadas reales por origen
-  var text = "Hola Ripo, me ayudas con mi cambio físico? (" + ctx + ")";
+  // 6/11 Ripo/COO: sin marcas raras ("(s1)" se veía). El origen va en una variante natural del saludo; analista/kpis.py la traduce al código
+  var TEXTOS = {
+    t1: "Hola Ripo, vengo de TikTok, me ayudas con mi cambio físico?",
+    t2: "Hola Ripo, vengo de TikTok, me podés ayudar con mi cambio físico?",
+    i1: "Hola Ripo, vengo de Instagram, me ayudas con mi cambio físico?",
+    i2: "Hola Ripo, vengo de Instagram, me podés ayudar con mi cambio físico?",
+    f1: "Hola Ripo, vengo de Facebook, me ayudas con mi cambio físico?",
+    w1: "Hola Ripo, vi tu link, me ayudas con mi cambio físico?",
+    s1: "Hola Ripo, me ayudas con mi cambio físico?",
+    s2: "Hola Ripo, me podés ayudar con mi cambio físico?",
+    s3: "Hola Ripo, quiero arrancar mi cambio físico, me ayudas?"
+  };
+  var text = TEXTOS[ctx];
   var waUrl = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text);
   var wa = document.getElementById("wa");
   wa.href = waUrl;
