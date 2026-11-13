@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CuerpoFit con Ripo</title>
+<meta name="description" content="Coaching online para bajar grasa y ganar músculo sin dietas estrictas: comida en base a lo que ya comés, rutina en casa o gym y chat conmigo y mi equipo todos los días">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f4f1" media="(prefers-color-scheme: light)">
+<meta property="og:title" content="CuerpoFit con Ripo">
+<meta property="og:description" content="Bajá grasa y ganá músculo sin dietas estrictas ni pasar hambre">
+<meta property="og:image" content="assets/img/julieta.webp">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="preload" as="image" href="assets/img/julieta.webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  // tema elegido a mano (si lo hay) antes de pintar, para que no parpadee
+  try { var t = localStorage.getItem("cf-tema"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#plan">Ir al plan y los valores</a>
+
+<div class="inapp" id="inapp" hidden>
+  <p><b>Estás dentro de TikTok:</b> para que se abra WhatsApp tocá los <b>3 puntitos ···</b> de arriba a la derecha y elegí <b>Abrir en el navegador</b></p>
+</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="marca" href="#inicio" aria-label="CuerpoFit, inicio">
+      <img src="assets/img/logo.webp" width="34" height="34" alt="">
+      <span>Cuerpo<em>Fit</em></span>
+    </a>
+    <div class="top-acc">
+      <button class="tema" id="tema" type="button" aria-label="Cambiar entre modo claro y oscuro">
+        <svg class="i-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        <svg class="i-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+      </button>
+      <a class="pill js-wa" data-boton="hablar" href="https://wa.me/5491178129062?text=hola%20Ripo%2C%20vengo%20de%20la%20p%C3%A1gina">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. Qué es y para quién -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-in">
+    <div class="hero-txt">
+      <p class="kicker">Coaching online con Ripo</p>
+      <h1>Bajá grasa y ganá músculo <span>sin dietas estrictas ni pasar hambre</span></h1>
+      <p class="lead">Te ayudo con la comida (en base a lo que ya comés) y una rutina hecha para vos, en casa o en el gym, y me tenés por chat a mí y a mi equipo todos los días de mañana a noche</p>
+      <a class="btn btn-wa js-wa" id="cta-hero" data-boton="hablar" href="https://wa.me/5491178129062?text=hola%20Ripo%2C%20vengo%20de%20la%20p%C3%A1gina">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3a2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+        Hablar con Ripo por WhatsApp
+      </a>
+      <p class="sub-cta">Me contás qué querés lograr y vemos si te puedo ayudar</p>
+      <ul class="sellos">
+        <li>Entrenador certificado desde 2020</li>
+        <li>Más de 3000 resultados en 25 países</li>
+        <li>100% online</li>
+      </ul>
+    </div>
+    <figure class="hero-foto">
+      <img src="assets/img/julieta.webp" width="665" height="520" alt="Antes y después de Julieta, de perfil: menos panza y cintura más chica" fetchpriority="high">
+      <figcaption><b>Julieta</b> -6 kg en 1 mes</figcaption>
+    </figure>
+  </div>
+  <a class="bajar" href="#resultados">Ver resultados</a>
+</section>
+
+<!-- 2. Resultados reales (los mismos del PDF que manda el closer) -->
+<section class="sec" id="resultados" aria-labelledby="t-res">
+  <div class="wrap">
+    <p class="kicker">Resultados</p>
+    <h2 id="t-res">Alumnas y alumnos reales</h2>
+    <p class="intro">Son los mismos que te paso por WhatsApp, y hay +700 más etiquetados en las historias destacadas de mi <a href="https://www.instagram.com/joa.ripo/" rel="noopener" target="_blank">Instagram</a></p>
+    <div class="chips" role="group" aria-label="Filtrar resultados">
+      <button type="button" class="chip on" data-f="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="chip" data-f="m" aria-pressed="false">Mujeres</button>
+      <button type="button" class="chip" data-f="h" aria-pressed="false">Hombres</button>
+    </div>
+  </div>
+  <div class="carrusel" id="carrusel" tabindex="0" aria-label="Fotos de antes y después, deslizá para ver más">
+    <figure class="res" data-g="m"><img src="assets/img/aru.webp" width="720" height="346" alt="Antes y después de Aru" loading="lazy" decoding="async"><figcaption><b>Aru</b><span>-5 kg en 1 mes</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="m"><img src="assets/img/viviana.webp" width="720" height="474" alt="Antes y después de Viviana" loading="lazy" decoding="async"><figcaption><b>Viviana</b><span>-10 kg en 2 meses</span><small>España</small></figcaption></figure>
+    <figure class="res" data-g="m"><img src="assets/img/patricia.webp" width="707" height="508" alt="Antes y después de Patricia" loading="lazy" decoding="async"><figcaption><b>Patricia</b><span>-7 kg en 2 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="m"><img src="assets/img/paola.webp" width="606" height="423" alt="Antes y después de Paola" loading="lazy" decoding="async"><figcaption><b>Paola</b><span>-6 kg en 1 mes y medio</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="m"><img src="assets/img/karla.webp" width="619" height="520" alt="Antes y después de Karla" loading="lazy" decoding="async"><figcaption><b>Karla</b><span>-3 kg en 21 días</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="m"><img src="assets/img/sofia.webp" width="583" height="520" alt="Antes y después de Sofía" loading="lazy" decoding="async"><figcaption><b>Sofía</b><span>+5 kg en 1 mes</span><small>España</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/bruno.webp" width="622" height="442" alt="Antes y después de Bruno" loading="lazy" decoding="async"><figcaption><b>Bruno</b><span>-25 kg en 6 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/facundo.webp" width="720" height="234" alt="Progreso de Facundo en cuatro fotos" loading="lazy" decoding="async"><figcaption><b>Facundo</b><span>-18 kg en 5 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/joel.webp" width="720" height="440" alt="Antes y después de Joel" loading="lazy" decoding="async"><figcaption><b>Joel</b><span>-14 kg en 3 meses</span><small>Venezuela</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/tomas.webp" width="629" height="394" alt="Antes y después de Tomás" loading="lazy" decoding="async"><figcaption><b>Tomás</b><span>-13 kg en 56 días</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/ricardo.webp" width="720" height="434" alt="Antes y después de Ricardo" loading="lazy" decoding="async"><figcaption><b>Ricardo</b><span>-10 kg en 2 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/juan.webp" width="411" height="474" alt="Antes y después de Juan" loading="lazy" decoding="async"><figcaption><b>Juan</b><span>-10 kg en 3 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/jorge.webp" width="720" height="463" alt="Antes y después de Jorge" loading="lazy" decoding="async"><figcaption><b>Jorge</b><span>-10 kg en 3 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/alejandro.webp" width="682" height="438" alt="Antes y después de Alejandro" loading="lazy" decoding="async"><figcaption><b>Alejandro</b><span>-7 kg en 2 meses</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/emanuel.webp" width="533" height="392" alt="Antes y después de Emanuel" loading="lazy" decoding="async"><figcaption><b>Emanuel</b><span>-7 kg en 2 meses</span><small>México</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/german.webp" width="527" height="520" alt="Antes y después de Germán" loading="lazy" decoding="async"><figcaption><b>Germán</b><span>-3 kg en 14 días</span><small>Argentina</small></figcaption></figure>
+    <figure class="res" data-g="h"><img src="assets/img/bilal.webp" width="713" height="472" alt="Antes y después de Bilal" loading="lazy" decoding="async"><figcaption><b>Bilal</b><span>+7 kg en 3 meses</span><small>España</small></figcaption></figure>
+  </div>
+  <div class="wrap">
+    <p class="nota">Cada cuerpo es distinto y el resultado depende de cada persona, por eso arrancamos viendo tu caso</p>
+  </div>
+</section>
+
+<!-- 3. Cómo funciona -->
+<section class="sec alt" id="como" aria-labelledby="t-como">
+  <div class="wrap">
+    <p class="kicker">Cómo trabajamos</p>
+    <h2 id="t-como">No lo hacés x tu cuenta</h2>
+    <p class="intro">Todo 100% online, con alumnas y alumnos de todo el país y de afuera</p>
+    <div class="grid4">
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 3.5z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+        <h3>Chat conmigo y mi equipo todos los días</h3>
+        <p>De mañana a noche, x lo que necesites (comida, rutina, ansiedad, dudas)</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5l5-3v9l-5-3z"/></svg>
+        <h3>8 videollamadas x mes</h3>
+        <p>Grupales, los martes a las 19 y los sábados a las 11, un tema x semana y respondo TODAS las dudas. No son obligatorias: quedan grabadas y las ves desde el día 1 (en vivo entrás desde la semana 5)</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 4c0 2 2 2 2 4M13 3c0 2 2 2 2 4"/></svg>
+        <h3>Comida rica y fácil, con lo que ya comés</h3>
+        <p>Lista de compras y te ayudo a ordenar tus comidas en base a lo que ya comés y te gusta (podés comer lo mismo que tu familia, sin cocinar aparte), sin dietas estrictas ni comidas raras</p>
+      </article>
+      <article class="card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg>
+        <h3>Rutina hecha para vos, en casa o en el gym</h3>
+        <p>La mayoría empieza en casa y sin material (con 1 hora 3 veces x semana alcanza), y cuando agarrás ritmo te ayudo a pasar al gym si querés</p>
+      </article>
+    </div>
+
+    <h3 class="h-pasos">Cómo arrancás</h3>
+    <ol class="pasos">
+      <li><b>Me escribís por WhatsApp</b><span>con el botón, ya va el mensaje escrito</span></li>
+      <li><b>Te hago un par de preguntas</b><span>qué querés lograr, qué te viene costando y tu salud</span></li>
+      <li><b>Elegís mes a mes o pago único</b><span>y pagás como te quede mejor</span></li>
+      <li><b>Te paso un formulario cortito</b><span>y con eso te ayudo con la comida y la rutina a medida, según el cuerpo que quieras lograr</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. Para quién es y para quién no -->
+<section class="sec" id="para-quien" aria-labelledby="t-quien">
+  <div class="wrap">
+    <p class="kicker">Antes de arrancar</p>
+    <h2 id="t-quien">Para quién es (y para quién no)</h2>
+    <div class="dos">
+      <div class="lista si">
+        <h3>Es para vos si</h3>
+        <ul>
+          <li>Querés bajar grasa, ganar músculo o las dos cosas a la vez (recomposición corporal)</li>
+          <li>Probaste mil dietas y siempre volvés a lo mismo</li>
+          <li>Tenés poco tiempo: la mayoría de mis alumnas tiene entre 25 y 45 años, con hijos y laburo</li>
+          <li>Tenés una patología tratada (diabetes, tiroides, presión u otra) y tu médico te autoriza a entrenar y cambiar la comida: la rutina se adapta a lo que te marcó</li>
+        </ul>
+      </div>
+      <div class="lista no">
+        <h3>Por ahora no es para vos si</h3>
+        <ul>
+          <li>Estás embarazada, en el posparto (menos de 40 días) o dando la teta: primero vos y tu bebé</li>
+          <li>Tenés un TCA (bulimia, anorexia, atracones): primero con nutricionista y psicólogo</li>
+          <li>Tenés una lesión, una cirugía reciente o una enfermedad sin tratar o sin el ok de tu médico</li>
+          <li>Tenés menos de 13 años (de 13 a 17 se puede, con un adulto a cargo)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota">No doy consejos médicos: ante cualquier duda de salud, primero tu médico, y apenas tengas el ok me escribís y arrancamos con TODO</p>
+  </div>
+</section>
+
+<!-- 5. El plan y los valores según país -->
+<section class="sec alt" id="plan" aria-labelledby="t-plan">
+  <div class="wrap">
+    <p class="kicker">El plan</p>
+    <h2 id="t-plan">Plan CuerpoFit, 3 meses</h2>
+
+    <div class="pais" role="radiogroup" aria-label="Dónde vivís">
+      <button type="button" role="radio" class="pais-b" data-pais="ar" aria-checked="false">Vivo en Argentina</button>
+      <button type="button" role="radio" class="pais-b" data-pais="ext" aria-checked="false">Vivo en otro país</button>
+    </div>
+    <p class="pais-pide" id="pais-pide">Elegí dónde vivís para ver los valores</p>
+
+    <div class="plan">
+      <ul class="incluye">
+        <li>chat conmigo y mi equipo todos los días de mañana a noche</li>
+        <li>8 videollamadas x mes conmigo y mis mejores alumnos y alumnas</li>
+        <li>lista de compras y comidas ricas y fáciles</li>
+        <li>rutina hecha para vos (gimnasio o casa)</li>
+        <li class="gar"><b>garantía:</b> si no lográs tu cambio físico siguiendo mis indicaciones, te devuelvo todo lo que me pagaste</li>
+      </ul>
+
+      <div class="precios" id="precios" hidden>
+        <div class="op">
+          <p class="op-t">Mes a mes</p>
+          <p class="op-p"><span data-v="mes"></span> <small>x mes</small></p>
+          <p class="op-s">durante 3 meses</p>
+          <a class="btn btn-wa btn-sm js-wa" data-boton="mes" href="https://wa.me/5491178129062">Quiero arrancar mes a mes</a>
+        </div>
+        <div class="op op-dest">
+          <p class="op-badge">te llevás 1 mes gratis</p>
+          <p class="op-t">Pago único</p>
+          <p class="op-p"><span data-v="unico"></span></p>
+          <p class="op-s">los 3 meses en 1 solo pago (te ahorrás <span data-v="ahorro"></span>)</p>
+          <a class="btn btn-wa btn-sm js-wa" data-boton="unico" href="https://wa.me/5491178129062">Quiero arrancar con el pago único</a>
+        </div>
+      </div>
+
+      <details class="pagar" id="pagar" hidden>
+        <summary>Ya me decidí, quiero pagar acá</summary>
+        <div class="pagar-in">
+          <p data-v="medio"></p>
+          <div class="pagar-bot">
+            <a class="btn btn-pago js-pago" data-op="mes" href="#" rel="noopener" target="_blank">Pagar <span data-v="mes"></span> (primer mes)</a>
+            <a class="btn btn-pago js-pago" data-op="unico" href="#" rel="noopener" target="_blank">Pagar <span data-v="unico"></span> (pago único)</a>
+          </div>
+          <p class="pagar-nota">Después de pagar, mandame el comprobante por WhatsApp así arrancamos</p>
+          <a class="btn btn-linea js-wa" data-boton="pague" href="https://wa.me/5491178129062">Ya pagué, mandar comprobante</a>
+          <p class="pagar-alt" data-v="alt"></p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Preguntas frecuentes (las que más llegan por privado y por wpp) -->
+<section class="sec" id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <p class="kicker">Preguntas frecuentes</p>
+    <h2 id="t-faq">Lo que más me preguntan</h2>
+    <div class="faq">
+      <details><summary>Cuánto sale</summary><p>Lo tenés arriba en <a href="#plan">el plan</a>, según si vivís en Argentina o afuera. Podés pagar mes a mes o los 3 meses juntos en 1 solo pago (y te llevás 1 mes gratis)</p></details>
+      <details><summary>Entreno en casa o en el gym</summary><p>Como quieras, la mayoría de mis alumnas empieza en casa y sin material, y una vez que se acomodan y agarramos ritmo, las ayudo a empezar el gym a las que quieren</p></details>
+      <details><summary>Es una dieta, sos nutricionista</summary><p>Soy entrenador especialista en pérdida de grasa y ganancia de músculo, y mejoro tus comidas en base a lo que YA venís comiendo (no te doy cosas raras ni dietas estrictas)</p></details>
+      <details><summary>Me gana la ansiedad y el picoteo, sirve igual</summary><p>Es lo que le pasa a casi todas mis alumnas antes de arrancar (después de probar mil cosas), y para eso está el chat conmigo y mi equipo todos los días: lo vamos ordenando SIN dejar de comer lo que te gusta y sin pasar hambre</p></details>
+      <details><summary>Las videollamadas son obligatorias</summary><p>No, quedan grabadas y las ves cuando puedas desde el día 1 (en vivo entrás desde la semana 5)</p></details>
+      <details><summary>Tengo diabetes, tiroides o una lesión, puedo</summary><p>Si lo estás tratando con tu médico y te autoriza a entrenar y cambiar la comida, si: la rutina se adapta a lo que te marcó. Si no lo trataste o no tenés el ok, primero tu médico y apenas lo tengas me escribís (yo no doy consejos médicos)</p></details>
+      <details><summary>Vivo en otro país, puedo</summary><p>Si, es todo 100% online y tengo alumnas de todo el país y de afuera. Se paga en dólares con tarjeta de débito o crédito (sin hacerte cuenta de PayPal), o x Prex o Western</p></details>
+      <details><summary>Cómo pago</summary><p>En Argentina con Mercado Pago (desde acá mismo) o transferencia, y afuera con tarjeta, Prex o Western. Después me mandás el comprobante por WhatsApp y arrancamos</p></details>
+      <details><summary>Hay garantía</summary><p>Si, la devolución aplica cuando, habiendo completado los meses que contrataste y haciendo el plan, no llegás al cuerpo que querés: ahí te devuelvo TODO lo que pagaste, cada centavo</p></details>
+      <details><summary>En cuánto tiempo veo resultados</summary><p>Depende de cada cuerpo y de cuánto lo sostengas, x eso no te prometo kilos exactos. Lo que ves arriba son alumnas y alumnos reales, y muchas bajan 10 kg en 2 a 3 meses</p></details>
+      <details><summary>Somos dos (pareja, amiga, mamá), se puede</summary><p>Si, hay plan para dos, escribime y te paso el valor</p></details>
+      <details><summary>Tengo menos de 18</summary><p>De 13 a 17 se puede, pero tiene que estar de acuerdo un adulto que se haga cargo (mamá, papá o tutor): que me escriba y le explico todo. Menores de 13, no</p></details>
+      <details><summary>Cómo arranco después de pagar</summary><p>Me mandás el comprobante por WhatsApp y te paso un formulario cortito, con eso te ayudo con la comida y la rutina a medida (según el cuerpo que quieras lograr)</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Cierre -->
+<section class="cierre" id="cierre" aria-labelledby="t-cierre">
+  <div class="wrap">
+    <h2 id="t-cierre">El primer paso es escribirme</h2>
+    <p>Me contás qué querés lograr y vemos juntos si te puedo ayudar</p>
+    <a class="btn btn-wa js-wa" data-boton="hablar" href="https://wa.me/5491178129062?text=hola%20Ripo%2C%20vengo%20de%20la%20p%C3%A1gina">Hablar con Ripo por WhatsApp</a>
+    <p class="num">o escribime al <button type="button" class="copiar" data-copiar="+5491178129062">+54 9 11 7812-9062</button></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <p class="pie-marca">Cuerpo<em>Fit</em> · Ripo · <a href="https://www.instagram.com/joa.ripo/" rel="noopener" target="_blank">Instagram</a></p>
+    <p>Los resultados son de alumnas y alumnos reales y dependen de cada persona. Esto no reemplaza la consulta médica</p>
+  </div>
+</footer>
+
+<!-- botón siempre a mano en el celu -->
+<div class="barra" id="barra" aria-hidden="true">
+  <a class="btn btn-wa js-wa" data-boton="hablar" tabindex="-1" href="https://wa.me/5491178129062?text=hola%20Ripo%2C%20vengo%20de%20la%20p%C3%A1gina">Hablar con Ripo por WhatsApp</a>
+</div>
+
+<!-- si WhatsApp no se abre (navegador de TikTok / Instagram) -->
+<div class="hoja" id="hoja" role="dialog" aria-modal="true" aria-labelledby="hoja-t" hidden>
+  <div class="hoja-in">
+    <button type="button" class="hoja-x" id="hoja-x" aria-label="Cerrar">×</button>
+    <h3 id="hoja-t">No se abrió WhatsApp?</h3>
+    <p id="hoja-tip">A veces TikTok e Instagram no lo dejan abrir. Tocá los <b>3 puntitos ···</b> de arriba, elegí <b>Abrir en el navegador</b> y tocá el botón otra vez, o hacelo a mano:</p>
+    <ol>
+      <li>Copiá el mensaje <button type="button" class="copiar btn-linea" id="copiar-msj" data-copiar="">Copiar mensaje</button></li>
+      <li>Copiá mi número <button type="button" class="copiar btn-linea" data-copiar="+5491178129062">+54 9 11 7812-9062</button></li>
+      <li>Abrí WhatsApp, tocá la lupita, pegá el número y mandame el mensaje (no hace falta que me agendes)</li>
+    </ol>
+  </div>
+</div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
