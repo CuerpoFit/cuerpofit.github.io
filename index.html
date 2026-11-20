@@ -100,8 +100,15 @@
   wa.href = waUrl;
 
   var NS = "ripo-cf-7k3q9x";
-  function hit(ev) {
-    try { fetch("https://abacus.jasoncameron.dev/hit/" + NS + "/" + ev + "_" + ctx, { mode: "no-cors", keepalive: true }).catch(function () {}); } catch (e) {}
+  // 20/11 (P115): abacus pierde 1 de cada 5 toques (HTTP 500, medido 4 de 20) y a veces tarda 30 s; con no-cors no se veia el error
+  // ahora lee la respuesta (abacus permite CORS) y reintenta hasta 3 veces (2, 5 y 10 s) si falla
+  function hit(ev, n) {
+    n = n || 0;
+    function otra() { if (n < 3) setTimeout(function () { hit(ev, n + 1); }, [2000, 5000, 10000][n]); }
+    try {
+      fetch("https://abacus.jasoncameron.dev/hit/" + NS + "/" + ev + "_" + ctx, { keepalive: true })
+        .then(function (r) { if (!r.ok) otra(); }, otra);
+    } catch (e) { otra(); }
   }
   hit("visita");
   // 02/11 toque_wa no decia si WhatsApp se abria: TikTok Android 57 toques y 0 llegadas con (t2). salio_* = la pagina quedo oculta despues del toque
